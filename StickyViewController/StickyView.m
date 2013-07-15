@@ -9,17 +9,6 @@
 #define DEFAULT_HEADER_HEIGHT 165
 #define DEFAULT_HEADER_HEIGHT_STUCK 45
 
-#define DEFAULT_LEFT_BUTTON_WIDTH 45
-#define DEFAULT_LEFT_BUTTON_HEIGHT 45
-#define DEFAULT_LEFT_BUTTON_X 0
-#define DEFAULT_LEFT_BUTTON_Y (DEFAULT_HEADER_HEIGHT - DEFAULT_LEFT_BUTTON_HEIGHT)
-
-#define DEFAULT_RIGHT_BUTTON_WIDTH 45
-#define DEFAULT_RIGHT_BUTTON_HEIGHT 45
-#define DEFAULT_RIGHT_BUTTON_Y (DEFAULT_HEADER_HEIGHT - DEFAULT_RIGHT_BUTTON_HEIGHT)
-
-#define DEFAULT_CENTER_PIECE_HEIGHT
-
 #import "StickyView.h"
 
 @implementation StickyView
@@ -75,9 +64,9 @@
     if (self.contentView) {
         [self.contentView setFrame:self.frame];
         [self.contentView setContentInset:UIEdgeInsetsMake(self.headerView.frame.size.height,
-                                                          0,
-                                                          0,
-                                                          0)];
+                                                           0,
+                                                           0,
+                                                           0)];
     }
 }
 
@@ -86,9 +75,9 @@
     if (self.headerView) {
         [contentView setFrame:self.frame];
         [self.contentView setContentInset:UIEdgeInsetsMake(self.headerView.frame.size.height,
-                                                            0,
-                                                            0,
-                                                            0)];
+                                                           0,
+                                                           0,
+                                                           0)];
     }
     _contentView = contentView;
 }

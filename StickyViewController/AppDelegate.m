@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "StickyViewController.h"
+#import "KIStickyViewController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [self.window setRootViewController:[[StickyViewController alloc] init]];
+    KIStickyViewController *viewController = [[KIStickyViewController alloc] init];
+    [self.window setRootViewController:viewController];
     [self.window makeKeyAndVisible];
     return YES;
 }

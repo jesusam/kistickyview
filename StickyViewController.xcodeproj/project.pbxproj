@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00CB468179425560031D1E5 /* KIStickyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CB467179425560031D1E5 /* KIStickyView.m */; };
+		C00CB46C179425690031D1E5 /* KIStickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CB46B179425690031D1E5 /* KIStickyViewController.m */; };
 		C051AF4C179041960036EB5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C051AF4B179041960036EB5F /* UIKit.framework */; };
 		C051AF4E179041960036EB5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C051AF4D179041960036EB5F /* Foundation.framework */; };
 		C051AF50179041960036EB5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C051AF4F179041960036EB5F /* CoreGraphics.framework */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C00CB466179425560031D1E5 /* KIStickyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIStickyView.h; sourceTree = "<group>"; };
+		C00CB467179425560031D1E5 /* KIStickyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIStickyView.m; sourceTree = "<group>"; };
+		C00CB46A179425690031D1E5 /* KIStickyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIStickyViewController.h; sourceTree = "<group>"; };
+		C00CB46B179425690031D1E5 /* KIStickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIStickyViewController.m; sourceTree = "<group>"; };
 		C051AF47179041960036EB5F /* StickyViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C051AF4B179041960036EB5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C051AF4D179041960036EB5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +97,10 @@
 				C051AF69179045810036EB5F /* StickyViewController.m */,
 				C051AF6B179045A40036EB5F /* StickyView.h */,
 				C051AF6C179045A40036EB5F /* StickyView.m */,
+				C00CB466179425560031D1E5 /* KIStickyView.h */,
+				C00CB467179425560031D1E5 /* KIStickyView.m */,
+				C00CB46A179425690031D1E5 /* KIStickyViewController.h */,
+				C00CB46B179425690031D1E5 /* KIStickyViewController.m */,
 			);
 			path = StickyViewController;
 			sourceTree = "<group>";
@@ -178,6 +188,8 @@
 				C051AF5C179041960036EB5F /* AppDelegate.m in Sources */,
 				C051AF6A179045810036EB5F /* StickyViewController.m in Sources */,
 				C051AF6D179045A40036EB5F /* StickyView.m in Sources */,
+				C00CB468179425560031D1E5 /* KIStickyView.m in Sources */,
+				C00CB46C179425690031D1E5 /* KIStickyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

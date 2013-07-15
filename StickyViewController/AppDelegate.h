@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class KIStickyViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
