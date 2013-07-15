@@ -82,4 +82,17 @@
     _contentView = contentView;
 }
 
+- (void)setHeaderHeightStuck:(int)headerHeightStuck
+{
+    if (self.headerView && (self.headerView.frame.origin.y + self.headerView.frame.size.height) < headerHeightStuck) {
+        [self.headerView setFrame:CGRectMake(self.headerView.frame.origin.x,
+                                            headerHeightStuck - self.headerView.frame.size.height,
+                                            self.headerView.frame.size.width,
+                                             self.headerView.frame.size.height)];
+        [self.contentView setContentOffset:CGPointMake(self.contentView.contentOffset.x,
+                                                      headerHeightStuck)];
+    }
+    _headerHeightStuck = headerHeightStuck;
+}
+
 @end
