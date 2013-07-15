@@ -16,6 +16,8 @@
 		C051AF5E179041960036EB5F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C051AF5D179041960036EB5F /* Default.png */; };
 		C051AF60179041960036EB5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051AF5F179041960036EB5F /* Default@2x.png */; };
 		C051AF62179041960036EB5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C051AF61179041960036EB5F /* Default-568h@2x.png */; };
+		C051AF6A179045810036EB5F /* StickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C051AF69179045810036EB5F /* StickyViewController.m */; };
+		C051AF6D179045A40036EB5F /* StickyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C051AF6C179045A40036EB5F /* StickyView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		C051AF5D179041960036EB5F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C051AF5F179041960036EB5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C051AF61179041960036EB5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C051AF68179045810036EB5F /* StickyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyViewController.h; sourceTree = "<group>"; };
+		C051AF69179045810036EB5F /* StickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyViewController.m; sourceTree = "<group>"; };
+		C051AF6B179045A40036EB5F /* StickyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyView.h; sourceTree = "<group>"; };
+		C051AF6C179045A40036EB5F /* StickyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,10 @@
 				C051AF5A179041960036EB5F /* AppDelegate.h */,
 				C051AF5B179041960036EB5F /* AppDelegate.m */,
 				C051AF52179041960036EB5F /* Supporting Files */,
+				C051AF68179045810036EB5F /* StickyViewController.h */,
+				C051AF69179045810036EB5F /* StickyViewController.m */,
+				C051AF6B179045A40036EB5F /* StickyView.h */,
+				C051AF6C179045A40036EB5F /* StickyView.m */,
 			);
 			path = StickyViewController;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 			files = (
 				C051AF58179041960036EB5F /* main.m in Sources */,
 				C051AF5C179041960036EB5F /* AppDelegate.m in Sources */,
+				C051AF6A179045810036EB5F /* StickyViewController.m in Sources */,
+				C051AF6D179045A40036EB5F /* StickyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +286,7 @@
 				C051AF67179041960036EB5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
