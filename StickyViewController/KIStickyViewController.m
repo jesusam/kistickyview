@@ -27,6 +27,7 @@
                                                                      [UIScreen mainScreen].bounds.size.height - 20)]];
         [self.view.contentView setDelegate:self];
         [self.view.contentView setContentSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 1000)];
+        [self.view.contentView setContentOffset:CGPointMake(self.view.contentView.contentOffset.x, -self.view.headerView.frame.size.height) animated:NO];
         [self setHeaderIsStuckAtTop:NO];
     }
     return self;

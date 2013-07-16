@@ -10,9 +10,10 @@
 
 @interface KIStickyView : StickyView
 
-@property (strong, nonatomic)UIButton *leftButton;
-@property (strong, nonatomic)UIButton *rightButton;
+@property (strong, readonly, nonatomic)UIButton *leftButton;
+@property (strong, readonly, nonatomic)UIButton *rightButton;
 @property (strong, nonatomic)UIImageView *headerCenterPieceImageView;
+@property (strong, nonatomic)UIImage *backdropImage;
 
 - (id)initWithFrame:(CGRect)frame
          headerView:(UIView *)headerView
@@ -21,5 +22,9 @@
          leftButton:(UIButton *)leftButton
         rightButton:(UIButton *)rightButton
 headerCenterPieceImageView:(UIImageView *)headerCenterPieceImageView;
+- (void)setBackdropImage:(UIImage *)backdropImage;
+- (void)setLeftButtonImage:(UIImage *)leftButtonImage;
+- (void)setRightButtonImage:(UIImage *)rightButtonImage;
+- (void)startTicking;
 
 @end

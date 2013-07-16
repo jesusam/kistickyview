@@ -21,6 +21,8 @@
 #define DEFAULT_RIGHT_BUTTON_HEIGHT 45
 #define DEFAULT_RIGHT_BUTTON_Y (DEFAULT_HEADER_HEIGHT - DEFAULT_RIGHT_BUTTON_HEIGHT)
 
+#define HEADER_TRIANGLE_HEIGHT 12
+
 #import "KIStickyView.h"
 
 @implementation KIStickyView
@@ -39,8 +41,10 @@ headerCenterPieceImageView:(UIImageView *)headerCenterPieceImageView
 {
     self = [super initWithFrame:frame headerView:headerView contentView:contentView headerHeightStuck:headerHeightStuck];
     if (self) {
-        [self setLeftButton:leftButton];
-        [self setRightButton:rightButton];
+        _leftButton = leftButton;
+        _rightButton = rightButton;
+        [self.headerView addSubview:_leftButton];
+        [self.headerView addSubview:_rightButton];
         [self setHeaderCenterPieceImageView:headerCenterPieceImageView];
     }
     return self;
@@ -67,36 +71,108 @@ headerCenterPieceImageView:(UIImageView *)headerCenterPieceImageView
                                                                   frame.size.width,
                                                                   DEFAULT_HEADER_HEIGHT)];
     UIScrollView *contentView = [[UIScrollView alloc] initWithFrame:frame];
-    [headerView setBackgroundColor:[UIColor blueColor]];
+      //****************************************************//
+     //MIGHT NEED TO DELETE THESE BACKGROUND COLOR SETTINGS//
+    //****************************************************//
     [contentView setBackgroundColor:[UIColor yellowColor]];
-    [leftButton setBackgroundColor:[UIColor redColor]];
-    [rightButton setBackgroundColor:[UIColor purpleColor]];
-    [imageView setBackgroundColor:[UIColor blackColor]];
     return [self initWithFrame:frame headerView:headerView contentView:contentView headerHeightStuck:DEFAULT_HEADER_HEIGHT_STUCK leftButton:leftButton rightButton:rightButton headerCenterPieceImageView:imageView];
 }
 
-- (void)setLeftButton:(UIButton *)leftButton
+- (void)setBackdropImage:(UIImage *)backdropImage
 {
+      //*********************************************************//
+     //SHOULD ADD A CHECK FOR THE FADER VIEW NOT BEING AVAILABLE//
+    //*********************************************************//
     if (self.headerView) {
-        [self.headerView addSubview:leftButton];
+        if ([self.headerView isKindOfClass:[UIImageView class]]) {
+            [[self.headerView.subviews objectAtIndex:(self.headerView.subviews.count - 1)] removeFromSuperview];
+              //**************************************************************************************//
+             //THIS LINE WILL ALSO NEED TO CHECK IF THE CENTER PICK IS AVAILABLE AND ADJUST THE INDEX//
+            //**************************************************************************************//
+            [[self.headerView.subviews objectAtIndex:0] removeFromSuperview];
+            [(UIImageView *)self.headerView setImage:backdropImage];
+        }
     }
-    _leftButton = leftButton;
 }
 
-- (void)setRightButton:(UIButton *)rightButton
+- (void)setLeftButtonImage:(UIImage *)leftButtonImage
 {
-    if (self.headerView) {
-        [self.headerView addSubview:rightButton];
-    }
-    _rightButton = rightButton;
+    [self.leftButton setImage:leftButtonImage forState:UIControlStateNormal];
+}
+
+- (void)setRightButtonImage:(UIImage *)rightButtonImage
+{
+    [self.rightButton setImage:rightButtonImage forState:UIControlStateNormal];
 }
 
 - (void)setHeaderCenterPieceImageView:(UIImageView *)headerCenterPieceImageView
 {
+    if (self.headerCenterPieceImageView) {
+        [self.headerCenterPieceImageView removeFromSuperview];
+    }
     if (self.headerView) {
-        [self.headerView addSubview:headerCenterPieceImageView];
+        [self.headerView insertSubview:headerCenterPieceImageView atIndex:0];
     }
     _headerCenterPieceImageView = headerCenterPieceImageView;
+}
+
+  //***********************************************************//
+ //MAKE SURE TO CORRECTLY INIT THE BUTTONS IN THE INIT METHODS//
+//***********************************************************//
+  //*************************************//
+ //CHANGE THE SET BUTTON CALLS TO _CALLS//
+//*************************************//
+  //*****************************************************************************************//
+ //HAVE TO SET THE CONTENT OFFSET OF THE SCROLLVIEW TO BEGIN WITH BECAUSE IT'S STARTING AT 0//
+//*****************************************************************************************//
+- (void)setHeaderView:(UIView *)headerView
+{
+    [super setHeaderView:headerView];
+    if ([headerView isKindOfClass:[UIImageView class]]) {
+        [headerView setUserInteractionEnabled:YES];
+        [self.rightButton setFrame:CGRectMake(self.rightButton.frame.origin.x,
+                                              self.headerView.frame.size.height - (HEADER_TRIANGLE_HEIGHT + self.rightButton.frame.size.height),
+                                              self.rightButton.frame.size.width,
+                                              self.rightButton.frame.size.height)];
+        [self.leftButton setFrame:CGRectMake(self.leftButton.frame.origin.x,
+                                             self.headerView.frame.size.height - (HEADER_TRIANGLE_HEIGHT + self.leftButton.frame.size.height),
+                                             self.leftButton.frame.size.width,
+                                             self.leftButton.frame.size.height)];
+        [self.headerView addSubview:self.rightButton];
+        [self.headerView addSubview:self.leftButton];
+        [self.headerView addSubview:self.headerCenterPieceImageView];
+        [self setHeaderHeightStuck:(HEADER_TRIANGLE_HEIGHT + self.leftButton.frame.size.height)];
+    }
+}
+
+- (void)startTicking
+{
+      //****************************************************************************//
+     //SHOULD I MAKE THIS SPINNER A SUBVIEW OF THE HEADER VIEW OR OF THE FADER VIEW//
+    //****************************************************************************//
+    UIView *faderView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                 0,
+                                                                 self.headerView.frame.size.width,
+                                                                 self.headerView.frame.size.height - HEADER_TRIANGLE_HEIGHT)];
+    [faderView setBackgroundColor:[UIColor blackColor]];
+    [faderView setAlpha:0.5f];
+    //****************************************************************//
+    //HAVE TO ADD THIS CHECK FOR WHEN THE CENTER PIECE PICK IS NOT NIL//
+    //****************************************************************//
+//    if (self.headerCenterPieceImageView) {
+//        [self.headerView insertSubview:faderView atIndex:1];
+//    }
+//    else {
+        [self.headerView insertSubview:faderView atIndex:0];
+//    }
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [spinner setFrame:CGRectMake(self.headerView.frame.size.width/2 - spinner.frame.size.width/2,
+                                 self.headerView.frame.size.height/2 - spinner.frame.size.height/2,
+                                 spinner.frame.size.width,
+                                 spinner.frame.size.height)];
+    [self.headerView addSubview:spinner];
+    [spinner startAnimating];
 }
 
 @end

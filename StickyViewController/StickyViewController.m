@@ -21,7 +21,6 @@
     if (self) {
         [self setView:[[StickyView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 20)]];
         [self.view.contentView setDelegate:self];
-        [self.view.contentView setContentSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 1000)];
     }
     return self;
 }

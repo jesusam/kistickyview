@@ -24,17 +24,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [contentView setContentInset:UIEdgeInsetsMake(headerView.frame.size.height,
-                                                      0,
-                                                      0,
-                                                      0)];
-        
         [self setHeaderView:headerView];
         [self setContentView:contentView];
+        [self.contentView setContentOffset:CGPointMake(self.contentView.contentOffset.x, -self.headerHeightStuck) animated:NO];
         [self setHeaderHeightStuck:headerHeightStuck];
-        
-        [self addSubview:self.contentView];
-        [self addSubview:self.headerView];
     }
     return self;
 }
@@ -60,25 +53,33 @@
 
 - (void)setHeaderView:(UIView *)headerView
 {
-    _headerView = headerView;
+    if (self.headerView) {
+        [self.headerView removeFromSuperview];
+    }
     if (self.contentView) {
-        [self.contentView setFrame:self.frame];
-        [self.contentView setContentInset:UIEdgeInsetsMake(self.headerView.frame.size.height,
+        [self.contentView setContentInset:UIEdgeInsetsMake(headerView.frame.size.height,
                                                            0,
                                                            0,
                                                            0)];
     }
+    [self insertSubview:headerView atIndex:1];
+    _headerView = headerView;
 }
 
 - (void)setContentView:(UIScrollView *)contentView
 {
+    NSLog(@"CHANGING CONTENTVIEW");
     if (self.headerView) {
-        [contentView setFrame:self.frame];
-        [self.contentView setContentInset:UIEdgeInsetsMake(self.headerView.frame.size.height,
+        [contentView setContentInset:UIEdgeInsetsMake(self.headerView.frame.size.height,
                                                            0,
                                                            0,
                                                            0)];
+        [contentView setContentOffset:CGPointMake(self.contentView.contentOffset.x, -(self.headerView.frame.origin.y + self.headerView.frame.size.height)) animated:NO];
     }
+    [contentView setFrame:self.frame];
+    [self.contentView removeFromSuperview];
+    [self insertSubview:contentView atIndex:0];
+    [contentView setDelegate:self.contentView.delegate];
     _contentView = contentView;
 }
 

@@ -8,44 +8,65 @@
 
 #import "AppDelegate.h"
 #import "KIStickyViewController.h"
+#import "KIStickyView.h"
 
 @implementation AppDelegate
 
+@synthesize viewController = _viewController;
+@synthesize i = _i;
+@synthesize j = _j;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _i = 1;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    KIStickyViewController *viewController = [[KIStickyViewController alloc] init];
-    [self.window setRootViewController:viewController];
+    self.viewController = [[KIStickyViewController alloc] init];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 178)];
+    [imageView setImage:[UIImage imageNamed:@"temp-header-backdrop.png"]];
+    [self.viewController.view setHeaderView:imageView];
+    [self.viewController.view setLeftButtonImage:[UIImage imageNamed:@"btn-back-normal.png"]];
+    [self.viewController.view setRightButtonImage:[UIImage imageNamed:@"btn-back-active.png"]];
+    [self.viewController.view.rightButton addTarget:self action:@selector(changeBackdrop) forControlEvents:UIControlEventTouchUpInside];
+    [self.viewController.view.leftButton addTarget:self action:@selector(changeContentView) forControlEvents:UIControlEventTouchUpInside];
+    [self.window setRootViewController:self.viewController];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+- (void)changeContentView
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    UIScrollView *scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    if (_j % 2 == 1) {
+        [scroller setBackgroundColor:[UIColor purpleColor]];
+        [scroller setContentSize:CGSizeMake(320, 1000)];
+    }
+    else {
+        [scroller setBackgroundColor:[UIColor blueColor]];
+        [scroller setContentSize:CGSizeMake(320, 1000)];
+    }
+    [self.viewController.view setContentView:scroller];
+    _j++;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+- (void)changeBackdrop
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    if (_i % 4 == 1) {
+        [self.viewController.view startTicking];
+    }
+    else if (_i % 4 == 2) {
+        UIImage *image = [UIImage imageNamed:@"Header.png"];
+        [self.viewController.view setBackdropImage:image];
+    }
+    else if (_i % 4 == 3) {
+        [self.viewController.view startTicking];
+    }
+    else {
+        UIImage *image = [UIImage imageNamed:@"temp-header-backdrop.png"];
+        [self.viewController.view setBackdropImage:image];
+    }
+    NSLog(@"change");
+    _i++;
 }
 
 @end

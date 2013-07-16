@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C00CB468179425560031D1E5 /* KIStickyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CB467179425560031D1E5 /* KIStickyView.m */; };
 		C00CB46C179425690031D1E5 /* KIStickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00CB46B179425690031D1E5 /* KIStickyViewController.m */; };
+		C00CB48017946B010031D1E5 /* temp-header-backdrop.png in Resources */ = {isa = PBXBuildFile; fileRef = C00CB47F17946B010031D1E5 /* temp-header-backdrop.png */; };
+		C00CB48317948E3C0031D1E5 /* Header.png in Resources */ = {isa = PBXBuildFile; fileRef = C00CB48217948E3C0031D1E5 /* Header.png */; };
+		C01E17001795969E00467743 /* btn-back-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C01E16FE1795969E00467743 /* btn-back-normal.png */; };
+		C01E17011795969E00467743 /* btn-back-active.png in Resources */ = {isa = PBXBuildFile; fileRef = C01E16FF1795969E00467743 /* btn-back-active.png */; };
 		C051AF4C179041960036EB5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C051AF4B179041960036EB5F /* UIKit.framework */; };
 		C051AF4E179041960036EB5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C051AF4D179041960036EB5F /* Foundation.framework */; };
 		C051AF50179041960036EB5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C051AF4F179041960036EB5F /* CoreGraphics.framework */; };
@@ -27,6 +31,10 @@
 		C00CB467179425560031D1E5 /* KIStickyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIStickyView.m; sourceTree = "<group>"; };
 		C00CB46A179425690031D1E5 /* KIStickyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIStickyViewController.h; sourceTree = "<group>"; };
 		C00CB46B179425690031D1E5 /* KIStickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIStickyViewController.m; sourceTree = "<group>"; };
+		C00CB47F17946B010031D1E5 /* temp-header-backdrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "temp-header-backdrop.png"; path = "../../krow-iphone/Krow/images/temp-header-backdrop.png"; sourceTree = "<group>"; };
+		C00CB48217948E3C0031D1E5 /* Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Header.png; path = "../../../Downloads/Krow Wireframes/General/Header.png"; sourceTree = "<group>"; };
+		C01E16FE1795969E00467743 /* btn-back-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back-normal.png"; path = "../../../Downloads/Krow Wireframes/General/btn-back-normal.png"; sourceTree = "<group>"; };
+		C01E16FF1795969E00467743 /* btn-back-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back-active.png"; path = "../../../Downloads/Krow Wireframes/General/btn-back-active.png"; sourceTree = "<group>"; };
 		C051AF47179041960036EB5F /* StickyViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C051AF4B179041960036EB5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C051AF4D179041960036EB5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,6 +116,10 @@
 		C051AF52179041960036EB5F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C01E16FE1795969E00467743 /* btn-back-normal.png */,
+				C01E16FF1795969E00467743 /* btn-back-active.png */,
+				C00CB48217948E3C0031D1E5 /* Header.png */,
+				C00CB47F17946B010031D1E5 /* temp-header-backdrop.png */,
 				C051AF53179041960036EB5F /* StickyViewController-Info.plist */,
 				C051AF54179041960036EB5F /* InfoPlist.strings */,
 				C051AF57179041960036EB5F /* main.m */,
@@ -174,6 +186,10 @@
 				C051AF5E179041960036EB5F /* Default.png in Resources */,
 				C051AF60179041960036EB5F /* Default@2x.png in Resources */,
 				C051AF62179041960036EB5F /* Default-568h@2x.png in Resources */,
+				C00CB48017946B010031D1E5 /* temp-header-backdrop.png in Resources */,
+				C00CB48317948E3C0031D1E5 /* Header.png in Resources */,
+				C01E17001795969E00467743 /* btn-back-normal.png in Resources */,
+				C01E17011795969E00467743 /* btn-back-active.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
